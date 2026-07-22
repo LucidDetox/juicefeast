@@ -548,6 +548,26 @@
       font-size: 0.95rem;
       color: rgba(247,242,234,0.65);
     }
+
+    /* merged two-column layout: overview left, explorable juices right */
+    .juice-section-inner.liquid-merged {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .liquid-left { position: sticky; top: 110px; }
+    .liquid-right-sub {
+      font-size: 0.88rem;
+      color: rgba(247,242,234,0.75);
+      margin: 4px 0 24px;
+    }
+    .liquid-merged .juice-table { max-width: none; }
+    .liquid-merged .juice-table-head { display: none; }
+    @media (max-width: 1024px) {
+      .juice-section-inner.liquid-merged { grid-template-columns: 1fr; gap: 48px; }
+      .liquid-left { position: static; }
+    }
     .daily-contents {
       background: #fff;
       border: 1px solid rgba(42,74,46,0.08);
@@ -913,36 +933,26 @@
       background: var(--leafy-img) center / cover no-repeat fixed;
       pointer-events: none;
     }
-    /* 2. Sunset light pooling over the foliage */
+    /* 2. Sunset light + one uniform cream veil over the foliage */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
       z-index: -1;
       background:
-        radial-gradient(ellipse 85% 70% at 80% 12%, rgba(222,91,34,0.20), transparent 62%),
-        radial-gradient(ellipse 80% 60% at 12% 90%, rgba(242,169,59,0.16), transparent 60%);
+        radial-gradient(ellipse 85% 70% at 80% 12%, rgba(222,91,34,0.18), transparent 62%),
+        radial-gradient(ellipse 80% 60% at 12% 90%, rgba(242,169,59,0.14), transparent 60%),
+        linear-gradient(0deg, rgba(247,242,234,0.72), rgba(247,242,234,0.72));
       pointer-events: none;
     }
 
-    /* 3. Scrims — foliage reads through, text stays crisp */
+    /* 3. Sections go transparent — the veil above handles legibility */
     body { background: transparent; }
     .method,
-    .testimonials { background: rgba(247,242,234,0.74); }
-    .benefits-grid { background: transparent; }
-
-    .packages-section {
-      background: linear-gradient(180deg,
-        rgba(247,242,234,0.86) 0%,
-        rgba(247,242,234,0.66) 50%,
-        rgba(247,242,234,0.86) 100%);
-    }
-    .juice-table-section {
-      background: linear-gradient(180deg,
-        rgba(240,233,220,0.88) 0%,
-        rgba(240,233,220,0.64) 55%,
-        rgba(240,233,220,0.88) 100%);
-    }
+    .testimonials,
+    .benefits-grid,
+    .packages-section,
+    .juice-table-section { background: transparent !important; }
 
     /* 4. Cards lift off the texture instead of sinking into it */
     .benefit-card,
@@ -1017,7 +1027,6 @@
       /* iOS ignores background-attachment: fixed — scroll it instead */
       body::before { background-attachment: scroll; background-size: 160% auto; }
       .juice-section { background-attachment: scroll; }
-      .method, .testimonials { background: rgba(247,242,234,0.82); }
     }
 
 
@@ -1358,8 +1367,8 @@
   </div>
 
   <!-- CONVENIENCE SECTION -->
-  <section style="background-color:#F7F2EA;background-image:var(--leafy-img);background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-    <div style="position:absolute;inset:0;background:rgba(245,240,232,0.76);"></div>
+  <section style="position:relative;">
+    <div style="position:absolute;inset:0;background:transparent;"></div>
     <div style="max-width:820px;margin:0 auto;padding:100px 48px;position:relative;z-index:1;" class="fade-up">
       <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#6a8a98;margin-bottom:20px;">Why people love it</p>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:900;line-height:1.1;color:#0B222D;margin-bottom:8px;">Feeling heavy after a few days of<br><em style="color:#C7A46A;font-style:italic;">tacos, margaritas, and late nights?</em></h2>
@@ -1418,7 +1427,7 @@
   </div>
 
   <!-- PACKAGES -->
-  <section id="packages" class="packages-section" style="background:#F7F2EA; padding:80px 48px 100px;">
+  <section id="packages" class="packages-section" style="padding:80px 48px 100px;">
     <div style="max-width:1060px; margin:0 auto;">
 
       <h2 class="pkg-section-title2">Choose Your Juice Feast Journey</h2>
@@ -1575,37 +1584,33 @@
   </section>
 
 <section id="feast" class="juice-section">
-    <div class="juice-section-inner">
-      <div class="section-label fade-up">What You're Drinking</div>
-      <h2 class="fade-up">Liquid <span class="accent">Sunshine.</span></h2>
-      <div class="rule fade-up"></div>
-      <div class="daily-contents fade-up">
-        <h4>Designed for tropical living</h4>
-        <p>Crafted to nourish without leaving you hungry</p>
-        <div class="daily-row">
-          <div class="daily-num">3</div>
-          <div class="daily-label">nutrient-dense cold-pressed juices</div>
+    <div class="juice-section-inner liquid-merged">
+      <div class="liquid-left fade-up">
+        <div class="section-label">What You're Drinking</div>
+        <h2>Liquid <span class="accent">Sunshine.</span></h2>
+        <div class="rule"></div>
+        <div class="daily-contents">
+          <h4>Designed for tropical living</h4>
+          <p>Crafted to nourish without leaving you hungry</p>
+          <div class="daily-row">
+            <div class="daily-num">3</div>
+            <div class="daily-label">nutrient-dense cold-pressed juices</div>
+          </div>
+          <div class="daily-row">
+            <div class="daily-num">2</div>
+            <div class="daily-label">hydrating botanical elixirs</div>
+          </div>
+          <div class="daily-row">
+            <div class="daily-num">1</div>
+            <div class="daily-label">restorative mineral broth</div>
+          </div>
         </div>
-        <div class="daily-row">
-          <div class="daily-num">2</div>
-          <div class="daily-label">hydrating botanical elixirs</div>
-        </div>
-        <div class="daily-row">
-          <div class="daily-num">1</div>
-          <div class="daily-label">restorative mineral broth</div>
-        </div>
+        <p class="footnote">✦ Produce is always washed with filtered spring water, not town tap water</p>
       </div>
-      <p class="footnote">✦ Produce is always washed with filtered spring water, not town tap water</p>
-    </div>
-  </section>
-
-  <!-- EACH JUICE TABLE -->
-  <section id="each-juice" class="juice-table-section">
-    <div class="section-label">Explore Each Juice</div>
-    <h2>Click on a juice to learn about its <span class="accent" style="font-style:normal;">benefits.</span></h2>
-    <p class="subtitle">Tap any juice to see its ingredients and benefits.</p>
-
-    <div class="juice-table fade-up">
+      <div class="liquid-right" id="each-juice">
+        <div class="section-label">Explore Each Juice</div>
+        <p class="liquid-right-sub">Tap any juice to see its ingredients and benefits.</p>
+        <div class="juice-table fade-up">
       <div class="juice-table-head">
         <div>Juice</div>
         <div>Ingredients</div>
@@ -1781,7 +1786,11 @@
         <span><span class="tfoot-dot" style="background:#C7A46A;"></span>Made Fresh Daily</span>
       </div>
     </div>
+      </div>
+    </div>
   </section>
+
+
 
   <!-- TESTIMONIALS -->
   <section class="testimonials">
