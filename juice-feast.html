@@ -898,7 +898,8 @@
     :root {
       --citrus:  #E8912D;
       --lime:    #7FB03A;
-      --beet:    #A32E5C;
+      --sunset:  #DE5B22;
+      --gold:    #F2A93B;
       --leaf:    #3f6e2e;
     }
 
@@ -911,15 +912,15 @@
       background: url('leafy-bg.webp') center / cover no-repeat fixed;
       pointer-events: none;
     }
-    /* 2. Warm light pooling over the foliage */
+    /* 2. Sunset light pooling over the foliage */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
       z-index: -1;
       background:
-        radial-gradient(ellipse 80% 70% at 82% 18%, rgba(232,145,45,0.16), transparent 62%),
-        radial-gradient(ellipse 85% 60% at 10% 88%, rgba(163,46,92,0.08),  transparent 60%);
+        radial-gradient(ellipse 85% 70% at 80% 12%, rgba(222,91,34,0.20), transparent 62%),
+        radial-gradient(ellipse 80% 60% at 12% 90%, rgba(242,169,59,0.16), transparent 60%);
       pointer-events: none;
     }
 
@@ -951,44 +952,65 @@
       backdrop-filter: blur(3px);
     }
 
-    /* 5. Saturated fruit accents in small doses */
+    /* 5. Sunset accents in small doses */
     .rule {
-      background: linear-gradient(90deg, var(--citrus), var(--lime));
+      background: linear-gradient(90deg, var(--sunset), var(--gold));
       width: 64px;
       height: 3px;
       border-radius: 2px;
     }
     .benefit-card { border-top: 3px solid transparent; }
     .benefits-grid .benefit-card:nth-child(1) { border-top-color: var(--lime); }
-    .benefits-grid .benefit-card:nth-child(2) { border-top-color: var(--citrus); }
-    .benefits-grid .benefit-card:nth-child(3) { border-top-color: var(--beet); }
+    .benefits-grid .benefit-card:nth-child(2) { border-top-color: var(--gold); }
+    .benefits-grid .benefit-card:nth-child(3) { border-top-color: var(--sunset); }
     .benefits-grid .benefit-card:nth-child(4) { border-top-color: var(--forest-mid); }
 
     .daily-row:nth-child(3)  .daily-num { color: var(--lime); }
-    .daily-row:nth-child(4)  .daily-num { color: var(--citrus); }
-    .daily-row:nth-child(5)  .daily-num { color: var(--beet); }
+    .daily-row:nth-child(4)  .daily-num { color: var(--gold); }
+    .daily-row:nth-child(5)  .daily-num { color: var(--sunset); }
 
-    .testi-quote-mark { color: rgba(127,176,58,0.28); }
+    .testi-quote-mark { color: rgba(222,91,34,0.30); }
 
-    /* 6. Sunlight warming the green bands */
+    /* 6. Sunset light over the dark bands */
     .juice-section {
       background:
-        radial-gradient(ellipse 70% 55% at 78% 10%, rgba(232,145,45,0.22), transparent 62%),
-        linear-gradient(180deg, rgba(45,157,111,0.88) 0%, rgba(35,125,92,0.90) 55%, rgba(26,95,74,0.92) 100%),
+        radial-gradient(ellipse 75% 60% at 78% 8%, rgba(242,169,59,0.30), transparent 60%),
+        linear-gradient(180deg, rgba(56,148,96,0.88) 0%, rgba(35,125,92,0.90) 55%, rgba(26,95,74,0.92) 100%),
         url('leafy-bg.webp') center / cover no-repeat fixed;
     }
+    .cta-section {
+      background:
+        radial-gradient(ellipse 90% 65% at 50% 0%, rgba(222,91,34,0.45), transparent 62%),
+        radial-gradient(ellipse 55% 40% at 72% 8%, rgba(242,169,59,0.35), transparent 58%),
+        var(--forest);
+    }
     .splash-band, .cta-section { position: relative; }
-    .splash-band::after,
-    .cta-section::after {
+    .splash-band::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 55% at 78% 12%, rgba(232,145,45,0.16), transparent 62%);
+      background: radial-gradient(ellipse 70% 55% at 78% 12%, rgba(222,91,34,0.22), transparent 62%);
       pointer-events: none;
       z-index: 0;
     }
     .splash-band-inner, .juice-section-inner { position: relative; z-index: 1; }
     .cta-section > * { position: relative; z-index: 1; }
+
+    /* 7. Booking buttons echo the banner CTA */
+    .btn-cta-primary,
+    .pkg-btn-dark,
+    .pkg-card:not(.featured) .pkg-cta {
+      background: var(--sunset);
+      color: #fff;
+    }
+    .btn-cta-primary:hover,
+    .pkg-btn-dark:hover,
+    .pkg-card:not(.featured) .pkg-cta:hover {
+      background: #c04c19;
+      color: #fff;
+    }
+    .btn-ritual { background: var(--sunset); color: #fff; }
+    .btn-ritual:hover { background: #c04c19; }
 
     @media (max-width: 900px) {
       /* iOS ignores background-attachment: fixed — scroll it instead */
@@ -1059,7 +1081,7 @@
 
 .pkg-badge {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  background: #a8884f; color: #fff; font-family: "Jost", sans-serif;
+  background: #DE5B22; color: #fff; font-family: "Jost", sans-serif;
   font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
   padding: 5px 16px; border-radius: 999px; white-space: nowrap; z-index: 10;
 }
