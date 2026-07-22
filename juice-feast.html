@@ -506,16 +506,48 @@
 
     /* ── LIQUID SUNSHINE / JUICES ── */
     .juice-section {
+      background: linear-gradient(180deg, #2d9d6f 0%, #2d8b63 50%, #1f6b52 100%), url('leafy-background.webp');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
       padding: 100px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .juice-section::before {
+      content: '';
+      position: absolute;
+      right: -120px; top: -120px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+    .juice-section::after {
+      content: '';
+      position: absolute;
+      left: -80px; bottom: -140px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: rgba(199,164,106,0.05);
+    }
+    .juice-section-inner {
       max-width: 1200px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
+    .juice-section .section-label { color: var(--amber-light); }
     .juice-section h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.4rem, 4vw, 3.4rem);
       font-weight: 900;
+      color: var(--cream);
     }
     .juice-section h2 .accent { color: var(--amber); font-style: italic; }
+    .juice-section .footnote {
+      font-size: 0.95rem;
+      color: rgba(247,242,234,0.65);
+    }
     .daily-contents {
       background: #fff;
       border: 1px solid rgba(42,74,46,0.08);
@@ -548,8 +580,12 @@
       font-weight: 700;
       color: var(--forest-mid);
       min-width: 36px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .daily-label { font-size: 0.88rem; color: var(--text-mid); }
+    .daily-label { font-size: 0.88rem; color: var(--text-mid); line-height: 1.4; }
 
     /* ── JUICE TABLE ── */
     .juice-table-section {
@@ -1409,26 +1445,28 @@
   </section>
 
 <section id="feast" class="juice-section">
-    <div class="section-label fade-up">What You're Drinking</div>
-    <h2 class="fade-up">Liquid <span class="accent">Sunshine.</span></h2>
-    <div class="rule fade-up"></div>
-    <div class="daily-contents fade-up">
-      <h4>Designed for tropical living</h4>
-      <p>Crafted to nourish without leaving you hungry</p>
-      <div class="daily-row">
-        <div class="daily-num">3</div>
-        <div class="daily-label">nutrient-dense cold-pressed juices</div>
+    <div class="juice-section-inner">
+      <div class="section-label fade-up">What You're Drinking</div>
+      <h2 class="fade-up">Liquid <span class="accent">Sunshine.</span></h2>
+      <div class="rule fade-up"></div>
+      <div class="daily-contents fade-up">
+        <h4>Designed for tropical living</h4>
+        <p>Crafted to nourish without leaving you hungry</p>
+        <div class="daily-row">
+          <div class="daily-num">3</div>
+          <div class="daily-label">nutrient-dense cold-pressed juices</div>
+        </div>
+        <div class="daily-row">
+          <div class="daily-num">2</div>
+          <div class="daily-label">hydrating botanical elixirs</div>
+        </div>
+        <div class="daily-row">
+          <div class="daily-num">1</div>
+          <div class="daily-label">restorative mineral broth</div>
+        </div>
       </div>
-      <div class="daily-row">
-        <div class="daily-num">2</div>
-        <div class="daily-label">hydrating botanical elixirs</div>
-      </div>
-      <div class="daily-row">
-        <div class="daily-num">1</div>
-        <div class="daily-label">restorative mineral broth</div>
-      </div>
+      <p class="footnote">✦ Produce is always washed with filtered spring water, not town tap water</p>
     </div>
-    <p style="font-size:0.95rem;color:var(--text-light);">✦ Produce is always washed with filtered spring water, not town tap water</p>
   </section>
 
   <!-- EACH JUICE TABLE -->
