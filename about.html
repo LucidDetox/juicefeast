@@ -48,31 +48,47 @@
   }
 
   /* PHILOSOPHY */
-  .philosophy-pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 56px;
+  .phil-prose {
+    max-width: 680px;
+    margin: 44px auto 0;
+    text-align: left;
   }
-  .phil-card {
-    background: rgba(247,242,234,0.04);
-    border: 1px solid rgba(199,164,106,0.12);
-    padding: 40px 32px;
-    text-align: center;
-  }
-  .phil-word {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 12px;
-    letter-spacing: 0.06em;
-  }
-  .phil-desc {
+  .phil-prose p {
     font-family: 'Inter', sans-serif;
-    font-size: 0.82rem;
-    color: rgba(247,242,234,0.55);
-    line-height: 1.7;
+    font-size: 0.97rem;
+    line-height: 1.9;
+    color: rgba(247,242,234,0.66);
+    margin-bottom: 26px;
+  }
+  .phil-prose p.phil-lead {
+    font-size: 1.08rem;
+    color: rgba(247,242,234,0.86);
+  }
+  .phil-prose p.phil-close {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--gold);
+    margin-top: 40px;
+  }
+  .phil-figure {
+    margin: 44px auto 46px;
+  }
+  .phil-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid rgba(199,164,106,0.28);
+  }
+  .phil-figure figcaption {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(247,242,234,0.45);
+    text-align: center;
+    margin-top: 14px;
   }
 
   /* SPECIALIST */
@@ -115,26 +131,6 @@
   }
   .cred-list li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; flex-shrink: 0; }
 
-  /* MISSION STRIP */
-  .mission-strip {
-    background: var(--gold);
-    padding: 60px 40px;
-    text-align: center;
-  }
-  .mission-strip h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    color: var(--teal-deep);
-    font-weight: 300;
-    margin-bottom: 16px;
-  }
-  .mission-strip p {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(15,45,58,0.7);
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
   /* VALUES */
   .values-grid {
     display: grid;
@@ -154,7 +150,6 @@
 
   @media (max-width: 800px) {
     .story-grid { grid-template-columns: 1fr; gap: 48px; }
-    .philosophy-pillars { grid-template-columns: 1fr; }
     .specialist-layout { grid-template-columns: 1fr; }
     .specialist-avatar { margin: 0 auto; }
   }
@@ -237,31 +232,46 @@
 <section class="section section-dark" id="philosophy">
   <div class="section-inner wide" style="text-align:center;">
     <span class="eyebrow rv">Our Philosophy</span>
-    <h2 style="color:var(--cream);">What We <em style="color:var(--gold);">Believe</em></h2>
+    <h2 style="color:var(--cream);">Clean the Water <em style="color:var(--gold);">First</em></h2>
     <div class="gold-divider center"></div>
-    <p style="font-family:'Inter',sans-serif;font-size:0.95rem;max-width:580px;margin:0 auto 0;">We believe detoxification is not a trend or a shortcut. It is a fundamental biological process, one that modern life consistently overwhelms and suppresses. Our work is to restore it.</p>
-    <div class="philosophy-pillars">
-      <div class="phil-card rv">
-        <div class="phil-word">The Body Heals Itself</div>
-        <p class="phil-desc">The body is designed to heal. Given the right conditions, it knows exactly what to do. Our work is simply to create those conditions.</p>
-      </div>
-      <div class="phil-card rv">
-        <div class="phil-word">Remove the Obstacles</div>
-        <p class="phil-desc">Modern life buries the body under toxins, stress, and stimulation. Clear the accumulation and healing stops being a struggle and becomes the natural state.</p>
-      </div>
-      <div class="phil-card rv">
-        <div class="phil-word">Health Is Inherent</div>
-        <p class="phil-desc">Health is not something you acquire. It is something you already possess, waiting underneath everything in the way. When you clear the body, you restore what's already yours.</p>
-      </div>
+
+    <div class="phil-prose">
+      <p class="phil-lead">We live in the age of the magic bullet. The green powder. The adaptogen. The IV drip. The mushroom coffee, the collagen, the cold plunge, the massage table, the shelf of supplements bought with real hope and real money.</p>
+
+      <figure class="phil-figure rv">
+        <img src="philosophy-1-overwhelm.webp" alt="A person standing before shelves of supplements, powders and wellness devices, deciding where to begin" loading="lazy" width="1200" height="800" />
+        <figcaption>So many remedies. So little changes.</figcaption>
+      </figure>
+
+      <p>None of it is worthless. Almost all of it simply arrives too early.</p>
+
+      <p>Picture a neglected fishbowl. The fish is listless, the color gone out of it, and the instinct is to feed it. Better food, more often. But food was never the problem. Until someone changes the water, every flake dropped in only adds to what's already fouling it.</p>
+
+      <figure class="phil-figure rv">
+        <img src="philosophy-2-fouled-bowl.webp" alt="A hand dropping food into a clouded fishbowl where a pale, listless goldfish drifts near the bottom" loading="lazy" width="1200" height="900" />
+        <figcaption>More food will not help a fouled bowl.</figcaption>
+      </figure>
+
+      <p>Your cells live in water too. Nothing reaches them just by being nearby, it has to cross the wall. That wall is not an open mouth, it's a gate, and when the fluid around it is thick with what the body hasn't cleared, most of what you take in circulates, gets filtered, and leaves.</p>
+
+      <figure class="phil-figure rv">
+        <img src="philosophy-3-cell-gate.webp" alt="Illustration of nutrients arriving at a cell membrane drawn as a heavy door caked shut with sludge" loading="lazy" width="1200" height="900" />
+        <figcaption>Nutrients arrive. The gate does not open.</figcaption>
+      </figure>
+
+      <p>This is why so many people do everything right and feel nothing change. The effort was real. The intention was right. Which brand they bought was, in the end, beside the point.</p>
+
+      <p>Detoxification changes the water. It doesn't replace good nutrition or thoughtful care of any kind. It's what lets them land. Clear the terrain first, and the same things you were already doing begin to work.</p>
+
+      <figure class="phil-figure rv">
+        <img src="philosophy-5-it-lands.webp" alt="A bright goldfish rising eagerly to food in a bowl of clear water surrounded by green plants" loading="lazy" width="1200" height="900" />
+        <figcaption>Clear water, and the same food finally lands.</figcaption>
+      </figure>
+
+      <p class="phil-close">Not because detox is the whole of health, but because it's the ground everything else is built on.</p>
     </div>
   </div>
 </section>
-
-<!-- MISSION STRIP -->
-<div class="mission-strip">
-  <h2>"A good detox program is the antidote<br>to modern living."</h2>
-  <p>This isn't just our tagline. It's the belief that has guided every program, every protocol, and every client relationship since 2012.</p>
-</div>
 
 <!-- SPECIALIST -->
 <section class="section leaf-texture" id="specialist">
