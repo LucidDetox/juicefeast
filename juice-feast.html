@@ -142,6 +142,7 @@
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 332px));
+      justify-content: center;
       gap: 16px;
       max-width: 1200px;
       margin: 56px auto 0;
@@ -385,6 +386,7 @@
       color: #fff;
       border-radius: 24px;
       max-width: 1100px;
+      width: calc(100% - 96px);
       margin: 80px auto;
       padding: 64px;
       display: grid;
@@ -897,7 +899,7 @@
       .packages-grid, .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
       .pkg-card.featured { transform: none; }
       .pkg-card.featured:hover { transform: translateY(-3px); }
-      .ritual-section { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; margin: 48px 24px; }
+      .ritual-section { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; margin: 48px auto; width: calc(100% - 48px); }
       .testi-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 80px 24px; }
       .cta-btns { flex-direction: column; align-items: center; }
@@ -1539,7 +1541,7 @@
   </section>
 
     <!-- THE RITUAL -->
-  <div id="rhythm" class="ritual-section fade-up" style="margin-left:48px;margin-right:48px;">
+  <div id="rhythm" class="ritual-section fade-up">
     <div>
       <div class="ritual-label">Weekly · Monthly Membership</div>
       <div class="ritual-name">The Rhythm</div>
@@ -1661,7 +1663,7 @@
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
               <li>Celery</li><li>Cucumber</li><li>Spinach</li>
-              <li>Apple</li><li>Lemon</li><li>Ginger</li>
+              <li>Cilantro</li><li>Pineapple</li><li>Collard greens</li>
             </ul>
           </div>
           <div>
@@ -1687,8 +1689,8 @@
           <div>
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
-              <li>Yerba Mate</li><li>Lemongrass</li><li>Mint</li>
-              <li>Ginger</li><li>Lime</li>
+              <li>Yerba Mate</li><li>Dandelion</li><li>Mint</li>
+              <li>Ginger</li><li>Lime</li><li>Chamomile</li><li>Orange</li>
             </ul>
           </div>
           <div>
@@ -1715,7 +1717,7 @@
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
               <li>Celery</li><li>Cucumber</li><li>Spinach</li>
-              <li>Swiss Chard</li><li>Parsley</li><li>Lemon</li>
+              <li>Parsley</li><li>Pineapple</li><li>Collard greens</li>
             </ul>
           </div>
           <div>
@@ -1741,8 +1743,9 @@
           <div>
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
-              <li>Beet</li><li>Carrot</li><li>Apple</li>
-              <li>Ginger</li><li>Turmeric</li><li>Black Pepper</li>
+              <li>Beet</li><li>Carrot</li><li>Celery</li>
+              <li>Cucumber</li><li>Orange</li><li>Turmeric</li>
+              <li>Ginger</li><li>Lime</li>
             </ul>
           </div>
           <div>
@@ -1756,7 +1759,7 @@
       <div class="juice-row" onclick="toggleJuice(this)">
         <div class="juice-row-head">
           <div class="juice-row-name">
-            <img class="juice-thumb" src="splash-coconut.webp" alt="" loading="lazy"/><span class="juice-num-badge" style="background:#C9B48A;">06</span>
+            <img class="juice-thumb" src="splash-broth.webp" alt="" loading="lazy"/><span class="juice-num-badge" style="background:#C9B48A;">06</span>
             Sunset Comfort
           </div>
           <div class="juice-row-type">Evening Broth</div>
@@ -1768,8 +1771,9 @@
           <div>
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
-              <li>Mineral broth base</li><li>Turmeric</li><li>Cumin</li>
-              <li>Himalayan salt</li><li>Coconut aminos</li>
+              <li>Carrot</li><li>Celery</li><li>Onion</li>
+              <li>Garlic</li><li>Sweet potato</li><li>Ginger</li>
+              <li>Turmeric</li><li>Himalayan salt</li><li>Spices</li>
             </ul>
           </div>
           <div>
