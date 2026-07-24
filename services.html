@@ -137,6 +137,22 @@
     margin: 60px auto 0;
   }
   .investment-box h3 { color: var(--cream); font-size: 1.4rem; margin-bottom: 8px; }
+  .invest-program-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .invest-program-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
   .price-display {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -152,7 +168,46 @@
     letter-spacing: 0.1em;
     margin-bottom: 28px;
   }
+  .invest-upgrade-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(247,242,234,0.45);
+    margin: -18px auto 28px;
+    max-width: 420px;
+  }
   .investment-box p { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: rgba(247,242,234,0.55); line-height: 1.7; max-width: 420px; margin: 0 auto 32px; }
+
+  /* 21-day timeline */
+  .invest-timeline {
+    text-align: left;
+    max-width: 460px;
+    margin: 0 auto 36px;
+    border-top: 1px solid rgba(199,164,106,0.15);
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(199,164,106,0.15);
+  }
+  .timeline-when {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+  .timeline-what {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.86rem;
+    color: rgba(247,242,234,0.75);
+    line-height: 1.6;
+  }
+  @media (max-width: 560px) {
+    .timeline-row { grid-template-columns: 1fr; gap: 4px; }
+  }
 
   /* SPECIALIST */
   .specialist-block {
@@ -356,12 +411,36 @@
       <div class="gold-divider center"></div>
     </div>
     <div class="investment-box">
-      <h3>Regenerative Detox Program</h3>
+      <span class="invest-program-sub">Regenerative Detox Program</span>
+      <div class="invest-program-name">The 21-Day Reset Transformation</div>
       <div class="price-display">$300 USD</div>
-      <div class="price-sub">$5,200 MXN · + Supplements (individualized)</div>
-      <p>Includes intake assessment, custom protocol design, supplement recommendations, lifestyle guidance, follow-up check-ins, and accountability calls throughout your journey.</p>
+      <div class="price-sub">$5,200 MXN · includes your 3-Day Juice Feast</div>
+      <p class="invest-upgrade-note">Prefer the 5-Day Feast to open your reset? Add $85 USD.</p>
+      <div class="invest-timeline">
+        <div class="timeline-row">
+          <span class="timeline-when">Before Starting</span>
+          <span class="timeline-what">20&ndash;30 minute kickoff consultation</span>
+        </div>
+        <div class="timeline-row">
+          <span class="timeline-when">Juice Reset</span>
+          <span class="timeline-what">Daily WhatsApp check-ins and unlimited questions during business hours</span>
+        </div>
+        <div class="timeline-row">
+          <span class="timeline-when">Week 2</span>
+          <span class="timeline-what">Two scheduled accountability calls (15&ndash;20 minutes each) plus messaging support</span>
+        </div>
+        <div class="timeline-row">
+          <span class="timeline-when">Week 3</span>
+          <span class="timeline-what">One accountability call (15&ndash;20 minutes) plus messaging support</span>
+        </div>
+        <div class="timeline-row">
+          <span class="timeline-when">Day 21</span>
+          <span class="timeline-what">Final coaching session (30&ndash;45 minutes): progress review, next-step plan, and program completion</span>
+        </div>
+      </div>
       <a href="contact.html" class="btn btn-gold">Book Your Free Consultation</a>
       <p style="margin-top:20px;font-size:0.78rem;color:rgba(247,242,234,0.3);">Start with a free consultation to discuss your goals and confirm this is the right fit.</p>
+      <p style="margin-top:8px;font-size:0.72rem;color:rgba(247,242,234,0.25);">Supplements, if recommended as part of your protocol, are priced separately based on your individual needs.</p>
     </div>
   </div>
 </section>
