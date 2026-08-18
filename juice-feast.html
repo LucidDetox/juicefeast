@@ -140,20 +140,47 @@
 
     /* ── BENEFIT CARDS ── */
     .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 332px));
-      justify-content: center;
-      gap: 16px;
       max-width: 1200px;
       margin: 56px auto 0;
       padding: 0 48px;
       box-sizing: border-box;
     }
+    .benefit-lead {
+      background: #fff;
+      border: 1px solid rgba(42,74,46,0.08);
+      border-radius: 16px;
+      padding: 26px 30px;
+    }
+    .benefit-eyebrow {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #6a8a98; margin-bottom: 12px;
+    }
+    .benefit-lead-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px; font-weight: 600; color: var(--text-dark);
+      line-height: 1.15; margin-bottom: 10px;
+    }
+    .benefit-lead-text {
+      font-size: 15px; line-height: 1.7; color: var(--text-mid);
+      margin: 0; max-width: 56ch;
+    }
+    .benefit-link {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0; padding-left: 30px;
+    }
+    .benefit-link-rule { display: block; width: 1px; height: 22px; background: rgba(199,164,106,0.55); }
+    .benefit-link-text { font-size: 13px; color: #6a8a98; font-style: italic; }
+    .benefit-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .benefit-ic { width: 26px; height: 26px; display: block; margin-bottom: 14px; }
     .benefit-card {
       background: #fff;
       border: 1px solid rgba(42,74,46,0.08);
       border-radius: 16px;
-      padding: 28px 28px 24px;
+      padding: 24px 26px;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .benefit-card:hover {
@@ -386,7 +413,6 @@
       color: #fff;
       border-radius: 24px;
       max-width: 1100px;
-      width: calc(100% - 96px);
       margin: 80px auto;
       padding: 64px;
       display: grid;
@@ -434,6 +460,14 @@
       max-width: 460px;
       margin-bottom: 28px;
     }
+    .cadence { max-width: 430px; margin-bottom: 30px; }
+    .cadence-track { position: relative; height: 52px; }
+    .cadence-line { position: absolute; left: 0; right: 0; top: 26px; height: 1px; background: rgba(255,255,255,0.16); }
+    .cadence-marks { position: relative; display: flex; justify-content: space-between; }
+    .cadence-mark { width: 56px; text-align: center; }
+    .cadence-dot { display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--amber-light); margin: 21px auto 0; }
+    .cadence-wk { display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 9px; }
+    .cadence-note { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 14px; }
     .ritual-features { list-style: none; margin-bottom: 36px; }
     .ritual-feature {
       font-size: 0.88rem;
@@ -679,23 +713,6 @@
       text-transform: uppercase;
       color: var(--text-light);
     }
-    .serve-warm {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--sunset);
-      border: 1px solid rgba(222,91,34,0.35);
-      border-radius: 999px;
-      padding: 3px 10px;
-    }
-    .serve-note {
-      font-size: 0.82rem;
-      color: var(--sunset);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
     .juice-row-preview {
       display: none;
     }
@@ -911,12 +928,14 @@
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
       .method, .juice-section, .testimonials { padding: 72px 24px 60px; }
-      .benefits-grid { grid-template-columns: 1fr; margin: 40px 24px 0; }
+      .benefits-grid { margin: 40px 24px 0; padding: 0; }
+      .benefit-row { grid-template-columns: 1fr; }
+      .benefit-lead-title { font-size: 26px; }
       .packages-section { padding: 72px 24px; }
       .packages-grid, .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
       .pkg-card.featured { transform: none; }
       .pkg-card.featured:hover { transform: translateY(-3px); }
-      .ritual-section { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; margin: 48px auto; width: calc(100% - 48px); }
+      .ritual-section { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; margin: 48px 24px; }
       .testi-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 80px 24px; }
       .cta-btns { flex-direction: column; align-items: center; }
@@ -989,11 +1008,6 @@
       height: 3px;
       border-radius: 2px;
     }
-    .benefit-card { border-top: 3px solid transparent; }
-    .benefits-grid .benefit-card:nth-child(1) { border-top-color: var(--lime); }
-    .benefits-grid .benefit-card:nth-child(2) { border-top-color: var(--gold); }
-    .benefits-grid .benefit-card:nth-child(3) { border-top-color: var(--sunset); }
-    .benefits-grid .benefit-card:nth-child(4) { border-top-color: var(--forest-mid); }
 
     .daily-row:nth-child(3)  .daily-num { color: var(--lime); }
     .daily-row:nth-child(4)  .daily-num { color: var(--gold); }
@@ -1090,7 +1104,7 @@
   object-fit: cover; pointer-events: none;
 }
 .dip-bg      { opacity: 0.12; mix-blend-mode: multiply; object-position: center 60%; }
-.wave-bg     { opacity: 0.28; mix-blend-mode: luminosity; filter: grayscale(20%); object-position: center 30%; }
+.shift-bg    { opacity: 0.28; mix-blend-mode: luminosity; filter: grayscale(20%); object-position: center 30%; }
 .deepdive-bg { opacity: 0.28; mix-blend-mode: multiply; object-position: center 20%; }
 
 /* Content flexes to fill height, button pinned to bottom */
@@ -1116,10 +1130,10 @@
 }
 
 .pkg-days {
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: #7a7264; margin-bottom: 4px; display: flex; align-items: center; gap: 5px;
+  font-size: 16px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #55503f; margin-bottom: 10px; display: flex; align-items: center; gap: 7px;
 }
-.featured .pkg-days { color: #8aa8b8; }
+.featured .pkg-days { color: #b9d3e0; }
 
 .pkg-name {
   font-family: "Cormorant Garamond", serif; font-size: 40px; font-weight: 600;
@@ -1302,17 +1316,6 @@
     transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
   }
   .splash-tile:hover img { transform: scale(1.06); }
-  .splash-tile figcaption {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 34px 16px 14px;
-    background: linear-gradient(180deg, transparent, rgba(11,34,45,0.85));
-    color: #F7F2EA;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
   @media (max-width: 800px) {
     .splash-band { padding: 72px 24px; }
     .splash-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -1392,17 +1395,184 @@
       <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#6a8a98;margin-bottom:20px;">Why people love it</p>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:900;line-height:1.1;color:#0B222D;margin-bottom:8px;">Feeling heavy after a few days of<br><em style="color:#C7A46A;font-style:italic;">tacos, margaritas, and late nights?</em></h2>
       <div style="width:48px;height:3px;background:#C7A46A;margin:28px 0 32px;border-radius:2px;"></div>
-      <p style="font-size:1.05rem;line-height:1.75;color:#3a5a68;margin-bottom:44px;max-width:620px;">Your full-day meal replacement juices, hydration tonics, and evening broth are delivered directly to your door, so you can focus on you instead of planning meals.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:44px;">
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">No grocery shopping</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">No cooking</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">No meal planning</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">No dishes</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">Made fresh daily</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">Free delivery in Sayulita</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">WhatsApp support included</span></div>
-        <div style="background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">Full-day meal replacement</span></div>
-        <div style="grid-column:1/-1;background:rgba(255,255,255,0.85);border:1px solid rgba(42,74,46,0.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:center;gap:14px;"><div style="width:32px;height:32px;border-radius:50%;background:#214956;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:14px;font-weight:700;">&#10003;</div><span style="font-size:0.92rem;color:#0B222D;">Cold-pressed from 15+ lbs of fresh produce</span></div>
+      <p style="font-size:1.05rem;line-height:1.75;color:#3a5a68;margin-bottom:44px;max-width:620px;">Your full day of juices, hydration tonics, and evening broth arrives at your door each morning, so your only job is to drink it.</p>
+      <!-- ===== BENEFITS BLOCK ===== -->
+      <style>
+        .sd-benefits { margin-bottom: 44px; }
+        .sd-hero { text-align: center; padding-bottom: 34px; border-bottom: 1px solid rgba(199,164,106,0.35); }
+        .sd-num {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-size: clamp(3.4rem, 8vw, 5.2rem);
+          font-weight: 500; line-height: 0.95; letter-spacing: -0.02em; color: #214956;
+        }
+        .sd-sub { font-size: 1.02rem; color: #0B222D; margin-top: 8px; }
+        .sd-note {
+          font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+          font-size: 1.3rem; color: #3a5a68; margin-top: 16px;
+        }
+        .sd-note b { font-weight: 700; color: #0B222D; }
+        .sd-nos { display: flex; justify-content: center; gap: clamp(2rem, 7vw, 4.5rem); margin-top: 38px; flex-wrap: wrap; }
+        .sd-no { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .sd-no span { font-size: 0.68rem; letter-spacing: 0.19em; text-transform: uppercase; color: #3a5a68; }
+        .sd-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 38px; }
+        .sd-card {
+          background: rgba(255,255,255,0.85); border: 1px solid rgba(42,74,46,0.08);
+          border-radius: 14px; padding: 18px 22px; display: flex; align-items: center; gap: 16px;
+        }
+        .sd-ic {
+          flex: 0 0 auto; width: 54px; height: 54px; border-radius: 50%;
+          background: rgba(199,164,106,0.16); display: flex; align-items: center; justify-content: center;
+        }
+        .sd-t { font-size: 1rem; font-weight: 600; color: #0B222D; line-height: 1.25; }
+        .sd-d { font-size: 0.86rem; color: #3a5a68; line-height: 1.4; margin-top: 2px; }
+        .sd-foot {
+          display: flex; align-items: center; justify-content: center; gap: 12px;
+          margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(199,164,106,0.35);
+          font-size: 0.95rem; color: #3a5a68;
+        }
+        @media (max-width: 760px) {
+          .sd-cards { grid-template-columns: 1fr; }
+          .sd-card { padding: 15px 17px; gap: 13px; }
+          .sd-ic { width: 46px; height: 46px; }
+          .sd-nos { gap: 1.6rem; }
+          .sd-note { font-size: 1.15rem; }
+        }
+      </style>
+
+      <div class="sd-benefits">
+
+        <div class="sd-hero">
+          <div class="sd-num">15 + lbs</div>
+          <p class="sd-sub">of local produce cold-pressed into every day</p>
+          <p class="sd-note">A <b>complete day of nourishment</b>. Nothing else needed.</p>
+
+          <div class="sd-nos">
+            <div class="sd-no">
+              <svg width="86" height="70" viewBox="0 0 86 70" fill="none" stroke="#214956" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M25 25h34l-4 34H29z"/>
+                <path d="M32 25c0-5 5-8 10-8s10 3 10 8"/>
+                <path d="M30 17c-4-4-2-9-2-9s6 0 8 5"/>
+                <path d="M36 17c0-5 3-8 3-8s3 4 2 8"/>
+                <path d="M44 18c1-4 5-6 5-6s1 4-1 7"/>
+                <rect x="50" y="9" width="7" height="13" rx="2"/>
+                <path d="M52 9V6h3v3"/>
+                <path d="M18 10l50 50"/>
+              </svg>
+              <span>No shopping</span>
+            </div>
+            <div class="sd-no">
+              <svg width="86" height="70" viewBox="0 0 86 70" fill="none" stroke="#214956" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="25" y="28" width="36" height="28" rx="4"/>
+                <path d="M25 35h-5a3 3 0 0 1 0-6h5M61 35h5a3 3 0 0 0 0-6h-5"/>
+                <path d="M28 50h20"/>
+                <path d="M36 21c0-4 2-4 2-7M43 21c0-4 2-4 2-7M50 21c0-4 2-4 2-7"/>
+                <path d="M18 10l50 50"/>
+              </svg>
+              <span>No cooking</span>
+            </div>
+            <div class="sd-no">
+              <svg width="86" height="70" viewBox="0 0 86 70" fill="none" stroke="#214956" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="37" cy="35" rx="17" ry="6"/>
+                <path d="M20 35c0 5 7.6 9 17 9s17-4 17-9"/>
+                <path d="M20 45c0 5 7.6 9 17 9s17-4 17-9"/>
+                <path d="M62 20v14M67 20v14M62 34h5v22"/>
+                <path d="M66 56h-4"/>
+                <path d="M70 12l1.5 4 4 1.5-4 1.5L70 23l-1.5-4-4-1.5 4-1.5z"/>
+                <path d="M18 10l50 50"/>
+              </svg>
+              <span>No cleanup</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sd-cards">
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#214956" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 16h24c0 6.5-5.4 11-12 11S4 22.5 4 16z"/>
+                <path d="M9 21h14"/>
+                <path d="M12 9c0-2.2 1.6-2.4 1.6-4.5M16 9c0-2.2 1.6-2.4 1.6-4.5M20 9c0-2.2 1.6-2.4 1.6-4.5"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">Mineral broth daily</div><div class="sd-d">Replenishes electrolytes</div></div>
+          </div>
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#214956" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 13.5a3.8 3.8 0 0 1 2.6-5.8 3.8 3.8 0 0 1 6.6-1 3.8 3.8 0 0 1 2.9 6.8z"/>
+                <path d="M12 13.5v9M15.5 13.5v4"/>
+                <path d="M22.5 18.5c3 0 5.5 2.6 5.5 6s-2.5 6-5.5 6-5.5-2.6-5.5-6 2.5-6 5.5-6z"/>
+                <path d="M22.5 18.5c0-2 1-3.2 2.6-3.8"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">80/20 veg to fruit</div><div class="sd-d">Prevents insulin spikes</div></div>
+          </div>
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#214956" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 18h24l-3 10H7z"/>
+                <path d="M9 22h14"/>
+                <path d="M10 18c0-4 3-7.5 6.5-8.5M23 18c0-3-2-5.5-4.5-6"/>
+                <path d="M16 13V9"/>
+                <path d="M16 3c1.9 0 3.4 1.5 3.4 3.4 0 2.4-3.4 5.6-3.4 5.6s-3.4-3.2-3.4-5.6C12.6 4.5 14.1 3 16 3z"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">Locally sourced</div><div class="sd-d">Organic where possible, fresh always</div></div>
+          </div>
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="32" height="30" viewBox="0 0 34 32" fill="none" stroke="#214956" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="11" width="7" height="17" rx="1.8"/>
+                <rect x="11.5" y="11" width="7" height="17" rx="1.8"/>
+                <rect x="20.5" y="11" width="7" height="17" rx="1.8"/>
+                <path d="M4.5 11V8h3v3M13.5 11V8h3v3M22.5 11V8h3v3"/>
+                <path d="M5 6h2M14 6h2M23 6h2"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">Daily sequence</div><div class="sd-d">Six items, labeled 1 to 6, timed for absorption</div></div>
+          </div>
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#214956" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 3h5.5v4.5c0 2.4 3.2 4.2 3.2 8.2v12a2.2 2.2 0 0 1-2.2 2.2H9a2.2 2.2 0 0 1-2.2-2.2v-12c0-4 3.2-5.8 3.2-8.2z"/>
+                <path d="M6.8 17h11.9"/>
+                <circle cx="24.5" cy="23.5" r="6"/>
+                <path d="M24.5 20v3.6l2.4 1.6"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">Bottled within 24 hours</div><div class="sd-d">Before delicate nutrients start to fade</div></div>
+          </div>
+
+          <div class="sd-card">
+            <div class="sd-ic">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#214956" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2.5" width="16" height="27" rx="3.4"/>
+                <path d="M14 26.5h4"/>
+                <circle cx="16" cy="14.5" r="5.6"/>
+                <path d="M13.6 12.4c.4 2.3 2.1 4 4.4 4.4l1-1.5 2.1 1-1 2.1c-3.3.5-7.1-3.3-6.6-6.6l2.1-1z" fill="#214956" stroke="none"/>
+              </svg>
+            </div>
+            <div><div class="sd-t">WhatsApp support throughout</div><div class="sd-d">Real humans, real answers, whenever</div></div>
+          </div>
+
+        </div>
+
+        <div class="sd-foot">
+          <svg width="38" height="26" viewBox="0 0 44 30" fill="none" stroke="#3a5a68" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 6h18v16H11z"/>
+            <path d="M29 12h6l5 5v5H29z"/>
+            <circle cx="16.5" cy="24" r="2.8"/><circle cx="33.5" cy="24" r="2.8"/>
+            <path d="M2 9h6M3 15h5M1 21h6"/>
+            <path d="M20 9c1.7 0 3 1.3 3 3 0 2.1-3 4.9-3 4.9S17 14.1 17 12c0-1.7 1.3-3 3-3z"/>
+          </svg>
+          Free delivery in Sayulita
+        </div>
+
       </div>
       <div style="background:#214956;border-radius:20px;padding:36px 40px;">
         <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:#fff;line-height:1.6;">For the next 1, 3, or 5 days, every meal is handled for you. Simply drink the liquid sunshine.</p>
@@ -1417,31 +1587,56 @@
       <h1>Your body <span class="heal">knows</span><br><em>how to heal.</em><br>Sometimes it just needs the space.</h1>
       <div class="rule"></div>
       <div class="method-body">
-        <p>Modern life keeps the body in a constant state of digestion, stimulation, and overload. A juice feast creates space for something different.</p>
-        <p>By temporarily removing solid food while deeply nourishing the body with fresh botanical nutrition, energy shifts away from digestion and toward restoration.</p>
-        <p>Each daily reset delivers over 15 pounds of fresh fruits and vegetables through cold-pressed juices, herbal tonics, and mineral-rich broths. That's more fresh produce than most people eat in an entire week, and the main reason hunger stays surprisingly low.</p>
-        <p>You're likely to notice lighter digestion, fewer cravings, clearer thinking, steadier energy, and a renewed connection to what real nourishment feels like.</p>
+        <p>Modern life keeps the body in a constant state of digestion, stimulation, and overload. Fasting or its baby brother, <em>juice feasting</em>, creates room for <strong>recovery</strong>.</p>
+        <p>The advantage of fresh juice is in <strong>mitigating hunger</strong>, because each daily reset carries nutrients from more raw herbs and vegetables than most people get in a whole week.</p>
       </div>
     </div>
   </section>
 
   <!-- BENEFIT CARDS -->
   <div class="benefits-grid fade-up">
-    <div class="benefit-card">
-      <h3>Brain Fog Clears</h3>
-      <p>Digestion consumes enormous energy. When digestion rests, that power redirects to cognitive clarity and cellular repair.</p>
+
+    <div class="benefit-lead">
+      <div class="benefit-eyebrow">What changes first</div>
+      <h3 class="benefit-lead-title">Digestion Gets a Break</h3>
+      <p class="benefit-lead-text">Digestion consumes enormous energy. A pause from heavy meals frees that power up for repair and restoration.</p>
     </div>
-    <div class="benefit-card">
-      <h3>Cravings Diminish</h3>
-      <p>The neurochemical loops driving junk food desire break within days. Without cravings there is no need for willpower.</p>
+
+    <div class="benefit-link">
+      <span class="benefit-link-rule"></span>
+      <span class="benefit-link-text">what you notice</span>
     </div>
-    <div class="benefit-card">
-      <h3>Taste Buds Reset</h3>
-      <p>Salty, greasy, overly sweet foods will taste wrong after the juice feast. Natural food becomes genuinely what you want.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Digestion Gets a Break</h3>
-      <p>A temporary pause from heavy meals gives the digestive system space to reset and recover.</p>
+
+    <div class="benefit-row">
+
+      <div class="benefit-card">
+        <svg class="benefit-ic" viewBox="0 0 32 32" fill="none" stroke="#C7A46A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 4a9 9 0 0 1 5.4 16.2c-.9.7-1.4 1.7-1.4 2.8H12c0-1.1-.5-2.1-1.4-2.8A9 9 0 0 1 16 4z"/>
+          <path d="M12.5 27h7M13.5 30h5"/>
+        </svg>
+        <h3>Brain Fog Clears</h3>
+        <p>That power redirects to cognitive clarity and cellular repair.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-ic" viewBox="0 0 32 32" fill="none" stroke="#C7A46A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 3s7 6.5 7 12.5a7 7 0 0 1-14 0C9 9.5 16 3 16 3z"/>
+          <path d="M5 5l22 22"/>
+        </svg>
+        <h3>Cravings Diminish</h3>
+        <p>The neurochemical loops driving junk food desire break within days. Without cravings there is no need for willpower.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-ic" viewBox="0 0 32 32" fill="none" stroke="#C7A46A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 13h14l-1.5 15h-11z"/>
+          <path d="M12 13V7a4 4 0 0 1 8 0v6"/>
+          <path d="M13.5 19h.01M18.5 19h.01M16 23h.01"/>
+        </svg>
+        <h3>Taste Buds Reset</h3>
+        <p>Salty, greasy, overly sweet foods will taste wrong after the juice feast. Natural food becomes genuinely what you want.</p>
+      </div>
+
     </div>
   </div>
 
@@ -1462,7 +1657,7 @@
               <div>
                 <p class="pkg-days">✦ 1 day</p>
                 <h3 class="pkg-name">The Dip</h3>
-                <div class="pkg-price-num">$890</div>
+                <div class="pkg-price-num">$790</div>
                 <div class="pkg-price-label">MXN pesos / day</div>
                 <div class="pkg-spacer"></div>
                 <div class="pkg-divider"></div>
@@ -1484,17 +1679,17 @@
           </div>
         </div>
 
-        <!-- The Wave -->
+        <!-- The Shift -->
         <div class="pkg-card featured rv">
           <div class="pkg-badge">Most Popular</div>
           <div class="pkg-card-inner">
-            <img class="pkg-bg wave-bg" src="2_The_Wave.jpg" alt="">
+            <img class="pkg-bg shift-bg" src="2_The_Shift.jpg" alt="">
             <div class="pkg-content">
               <div>
                 <p class="pkg-days">✦ 3 days</p>
-                <h3 class="pkg-name">The Wave</h3>
-                <div class="pkg-price-num">$2,390</div>
-                <div class="pkg-price-label">MXN pesos total · save $280</div>
+                <h3 class="pkg-name">The Shift</h3>
+                <div class="pkg-price-num">$2,190</div>
+                <div class="pkg-price-label">MXN pesos total · save $180</div>
                 <div class="pkg-spacer"></div>
                 <div class="pkg-divider"></div>
                 <p class="pkg-desc">Break old hunger patterns and experience what real nourishment feels like.</p>
@@ -1515,16 +1710,16 @@
           </div>
         </div>
 
-        <!-- Deep Dive -->
+        <!-- The Deep Dive -->
         <div class="pkg-card rv">
           <div class="pkg-card-inner">
             <img class="pkg-bg deepdive-bg" src="3_The_Deep_Dive.jpg" alt="">
             <div class="pkg-content">
               <div>
                 <p class="pkg-days" style="color:#a8884f;">✦ 5 days</p>
-                <h3 class="pkg-name" style="color:#a8884f;">Deep Dive</h3>
-                <div class="pkg-price-num">$3,950</div>
-                <div class="pkg-price-label">MXN pesos total · save $500</div>
+                <h3 class="pkg-name" style="color:#a8884f;">The Deep Dive</h3>
+                <div class="pkg-price-num">$3,690</div>
+                <div class="pkg-price-label">MXN pesos total · save $260</div>
                 <div class="pkg-spacer"></div>
                 <div class="pkg-divider"></div>
                 <p class="pkg-desc">Our most immersive reset for profound physical and mental renewal.</p>
@@ -1558,23 +1753,34 @@
   </section>
 
     <!-- THE RITUAL -->
-  <div id="rhythm" class="ritual-section fade-up">
+  <div id="rhythm" class="ritual-section fade-up" style="margin-left:48px;margin-right:48px;">
     <div>
-      <div class="ritual-label">Weekly · Monthly Membership</div>
+      <div class="ritual-label">Monthly Membership</div>
       <div class="ritual-name">The Rhythm</div>
       <p class="ritual-desc">Get in the rhythm of weekly resets. A smart and simple way to stay aligned month after month.</p>
+      <div class="cadence">
+        <div class="cadence-track">
+          <div class="cadence-line"></div>
+          <div class="cadence-marks">
+            <div class="cadence-mark"><span class="cadence-dot"></span><span class="cadence-wk">Wk 1</span></div>
+            <div class="cadence-mark"><span class="cadence-dot"></span><span class="cadence-wk">Wk 2</span></div>
+            <div class="cadence-mark"><span class="cadence-dot"></span><span class="cadence-wk">Wk 3</span></div>
+            <div class="cadence-mark"><span class="cadence-dot"></span><span class="cadence-wk">Wk 4</span></div>
+          </div>
+        </div>
+        <p class="cadence-note">One reset a week. Four a month. Every month.</p>
+      </div>
       <ul class="ritual-features">
-        <li class="ritual-feature">1 juice day per week, every week</li>
         <li class="ritual-feature">Priority scheduling & same-day flexibility</li>
         <li class="ritual-feature">Dedicated WhatsApp line</li>
       </ul>
       <a href="https://buy.stripe.com/7sYcN519icQieRg07xdjO03" class="btn-ritual" target="_blank" rel="noopener">Start My Rhythm</a>
     </div>
     <div class="ritual-price-box">
-      <div class="old">4 juice days · normally $3,560 MXN</div>
-      <div class="price"><sup>$</sup>3,200</div>
+      <div class="old">4 juice days · normally $3,160 MXN</div>
+      <div class="price"><sup>$</sup>2,790</div>
       <div class="period">pesos / month · 4 resets</div>
-      <div class="ritual-save">10% off always</div>
+      <div class="ritual-save">12% off always</div>
       <div class="ritual-tags">
         <span class="ritual-tag">📅 1 month minimum</span>
         <span class="ritual-tag">📍 Free Sayulita Delivery</span>
@@ -1588,16 +1794,14 @@
   <!-- SPLASH BAND: NATURE, CONCENTRATED -->
   <section class="splash-band">
     <div class="splash-band-inner">
-      <div class="section-label" style="color:#C7A46A;">Nature, Concentrated</div>
-      <h2 style="color:#F7F2EA;margin-bottom:12px;">Bursting With <em style="color:#C7A46A;">Living Color.</em></h2>
-      <p style="color:rgba(247,242,234,0.6);max-width:560px;margin:0 auto 48px;font-family:'Inter',sans-serif;font-size:0.95rem;line-height:1.7;">Every bottle begins as a pile of vibrant, living produce. This is what goes in.</p>
+      <div class="section-label" style="color:#C7A46A;margin-bottom:44px;">Nature, Concentrated</div>
       <div class="splash-grid">
-        <figure class="splash-tile rv"><img src="splash-citrus.webp" alt="Fresh oranges and limes bursting with juice" loading="lazy"/><figcaption>Citrus &amp; Lime</figcaption></figure>
-        <figure class="splash-tile rv"><img src="splash-green.webp" alt="Kale, cucumber and celery splashing in green juice" loading="lazy"/><figcaption>Leafy Greens</figcaption></figure>
-        <figure class="splash-tile rv"><img src="splash-ginger.webp" alt="Ginger root and turmeric with golden juice splash" loading="lazy"/><figcaption>Ginger &amp; Turmeric</figcaption></figure>
-        <figure class="splash-tile rv"><img src="splash-beet.webp" alt="Ruby beetroot with magenta juice splash" loading="lazy"/><figcaption>Beetroot</figcaption></figure>
-        <figure class="splash-tile rv"><img src="splash-tropical.webp" alt="Dragon fruit and pineapple with tropical splash" loading="lazy"/><figcaption>Dragon Fruit &amp; Piña</figcaption></figure>
-        <figure class="splash-tile rv"><img src="splash-coconut.webp" alt="Cracked coconut and mango with creamy splash" loading="lazy"/><figcaption>Coconut &amp; Mango</figcaption></figure>
+        <figure class="splash-tile rv"><img src="splash-citrus.webp" alt="Fresh oranges and limes bursting with juice" loading="lazy"/></figure>
+        <figure class="splash-tile rv"><img src="splash-green.webp" alt="Kale, cucumber and celery splashing in green juice" loading="lazy"/></figure>
+        <figure class="splash-tile rv"><img src="splash-ginger.webp" alt="Ginger root and turmeric with golden juice splash" loading="lazy"/></figure>
+        <figure class="splash-tile rv"><img src="splash-beet.webp" alt="Ruby beetroot with magenta juice splash" loading="lazy"/></figure>
+        <figure class="splash-tile rv"><img src="splash-tropical.webp" alt="Dragon fruit and pineapple with tropical splash" loading="lazy"/></figure>
+        <figure class="splash-tile rv"><img src="splash-coconut.webp" alt="Cracked coconut and mango with creamy splash" loading="lazy"/></figure>
       </div>
     </div>
   </section>
@@ -1605,9 +1809,7 @@
 <section id="feast" class="juice-section">
     <div class="juice-section-inner liquid-merged">
       <div class="liquid-left fade-up">
-        <div class="section-label">What You're Drinking</div>
-        <h2>Liquid <span class="accent">Sunshine.</span></h2>
-        <div class="rule"></div>
+        <div class="section-label" style="margin-bottom:36px;">What You're Drinking</div>
         <div class="daily-contents">
           <h4>Designed for tropical living</h4>
           <p>Crafted to nourish without leaving you hungry</p>
@@ -1624,7 +1826,7 @@
             <div class="daily-label">restorative mineral broth</div>
           </div>
         </div>
-        <p class="footnote">✦ Produce is always washed with filtered spring water, not town tap water</p>
+        <p class="footnote">✦ Produce is washed in filtered spring water</p>
       </div>
       <div class="liquid-right" id="each-juice">
         <div class="section-label">Explore Each Juice</div>
@@ -1680,7 +1882,7 @@
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
               <li>Celery</li><li>Cucumber</li><li>Spinach</li>
-              <li>Cilantro</li><li>Pineapple</li><li>Collard greens</li>
+              <li>Apple</li><li>Lemon</li><li>Ginger</li>
             </ul>
           </div>
           <div>
@@ -1706,8 +1908,8 @@
           <div>
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
-              <li>Yerba Mate</li><li>Dandelion</li><li>Mint</li>
-              <li>Ginger</li><li>Lime</li><li>Chamomile</li><li>Orange</li>
+              <li>Yerba Mate</li><li>Lemongrass</li><li>Mint</li>
+              <li>Ginger</li><li>Lime</li>
             </ul>
           </div>
           <div>
@@ -1734,7 +1936,7 @@
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
               <li>Celery</li><li>Cucumber</li><li>Spinach</li>
-              <li>Parsley</li><li>Pineapple</li><li>Collard greens</li>
+              <li>Swiss Chard</li><li>Parsley</li><li>Lemon</li>
             </ul>
           </div>
           <div>
@@ -1760,9 +1962,8 @@
           <div>
             <div class="juice-expand-label">Ingredients</div>
             <ul class="juice-ing-list">
-              <li>Beet</li><li>Carrot</li><li>Celery</li>
-              <li>Cucumber</li><li>Orange</li><li>Turmeric</li>
-              <li>Ginger</li><li>Lime</li>
+              <li>Beet</li><li>Carrot</li><li>Apple</li>
+              <li>Ginger</li><li>Turmeric</li><li>Black Pepper</li>
             </ul>
           </div>
           <div>
@@ -1779,7 +1980,7 @@
             <img class="juice-thumb" src="splash-broth.webp" alt="" loading="lazy"/><span class="juice-num-badge" style="background:#C9B48A;">06</span>
             Sunset Comfort
           </div>
-          <div class="juice-row-type">Evening Broth<br><span class="serve-warm">Serve Warm</span></div>
+          <div class="juice-row-type">Evening Broth</div>
           <div class="juice-row-preview">Mineral-rich and grounding. Satisfies savory cravings and eases digestion before sleep.</div>
           <div class="juice-arrow">▼</div>
         </div>
@@ -1795,7 +1996,6 @@
           </div>
           <div>
             <div class="juice-expand-label">Benefits</div>
-            <p class="serve-note">Gently warm before drinking, do not boil.</p>
             <p class="juice-benefit-text">Savory evening grounding. Minerals replenish electrolytes, signaling deep rest and overnight restoration.</p>
           </div>
         </div>
@@ -1817,7 +2017,7 @@
   <!-- TESTIMONIALS -->
   <section class="testimonials">
     <div class="section-label fade-up">Real Resets</div>
-    <h2 class="fade-up">From the Other Side<br>of the <span class="accent">Wave.</span></h2>
+    <h2 class="fade-up">From the Other Side<br>of the <span class="accent">Reset.</span></h2>
     <div class="rule fade-up"></div>
     <div class="testi-grid fade-up">
       <div class="testi-card">
