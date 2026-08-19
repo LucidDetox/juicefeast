@@ -116,6 +116,23 @@
     transition: background 0.2s;
   }
   .btn-whatsapp:hover { background: #1da851; }
+  .btn-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    color: var(--teal-deep);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-schedule:hover { background: #b3924e; }
   .whatsapp-icon { font-size: 1.1rem; }
 
   /* IN PERSON VS REMOTE */
@@ -256,18 +273,21 @@
               <span class="pill active">In Person · Sayulita</span>
               <span class="pill active">Remote · Worldwide</span>
             </div>
-            <p>Message us on WhatsApp to book your free consultation. Tell us a little about your health goals and we'll schedule a time to talk, in person if you're in Sayulita, or via video call from anywhere in the world.</p>
+            <p>Pick a time that works for you and we'll take it from there. We'll talk through your health goals in person if you're in Sayulita, or by video call from anywhere in the world. Prefer to ask a few questions first? Message us on WhatsApp instead.</p>
             <p style="font-size:0.8rem;color:var(--text-light);">The consultation is completely free and there is no obligation to proceed.</p>
             <ul class="what-to-expect">
               <li><span class="expect-check">✓</span> We review your health history & goals</li>
-              <li><span class="expect-check">✓</span> We walk through exactly what the 21 days look like</li>
+              <li><span class="expect-check">✓</span> We walk through exactly what your program looks like</li>
               <li><span class="expect-check">✓</span> We answer all your questions honestly</li>
               <li><span class="expect-check">✓</span> We tell you if we think it's the right fit</li>
             </ul>
           </div>
-          <a href="https://wa.me/523312894099?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20the%20Regenerative%20Detox%20program.%20My%20timezone%20is%20___%20and%20I%27m%20generally%20available%20___." class="btn-whatsapp">
-            <span class="whatsapp-icon">💬</span> Book Free Consultation
-          </a>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="https://link.tackcrm.ai/widget/bookings/free-detox-consultation" class="btn-schedule" target="_blank" rel="noopener">Book Free Consultation</a>
+            <a href="https://wa.me/523312894099?text=Hi%2C%20I%27d%20like%20to%20ask%20a%20few%20questions%20about%20the%20Regenerative%20Detox%20program." class="btn-whatsapp">
+              <span class="whatsapp-icon">💬</span> Ask a Question First
+            </a>
+          </div>
         </div>
       </div>
 
